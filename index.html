@@ -32,14 +32,14 @@
             var cID = "c".concat(cChar);
             
             var image = document.getElementById(cID);
-            image.getElementsByTagName("img")[0].src = "./Pics/".concat(characters[i - 1].concat(".JPG"));
+            image.getElementsByTagName("img")[0].src = "./Pics/".concat(characters[i - 1].concat(".jpg"));
             image.getElementsByTagName("h4")[0].innerHTML = characters[i - 1];
         }   
         
         var x = Math.floor(Math.random() * 24);
         
         var chosen = document.getElementById("chosen");
-        chosen.getElementsByTagName("img")[0].src = "./Pics/".concat(characters[x].concat(".JPG"));
+        chosen.getElementsByTagName("img")[0].src = "./Pics/".concat(characters[x].concat(".jpg"));
         chosen.getElementsByTagName("h4")[1].innerHTML = characters[x];
     }
     
@@ -55,7 +55,7 @@
     
     function waterBoard() {
         document.getElementById("home").style.display = "none";
-        document.body.style.backgroundImage = "url(./Pics/waterTribe.PNG)";
+        document.body.style.backgroundImage = "url(./Pics/waterTribe.png)";
         document.getElementById("board").style.display = "flex";
         
         characters = shuffle(characters);
@@ -65,7 +65,7 @@
     
     function earthBoard() {
         document.getElementById("home").style.display = "none";
-        document.body.style.backgroundImage = "url(./Pics/earthKingdom.JPG)";
+        document.body.style.backgroundImage = "url(./Pics/earthKingdom.jpg)";
         document.getElementById("board").style.display = "flex";
         
         characters = shuffle(characters);
@@ -75,7 +75,7 @@
     
     function fireBoard() {
         document.getElementById("home").style.display = "none";
-        document.body.style.backgroundImage = "url(./Pics/fireNation.PNG)";
+        document.body.style.backgroundImage = "url(./Pics/fireNation.png)";
         document.getElementById("board").style.display = "flex";
         
         characters = shuffle(characters);
@@ -85,7 +85,7 @@
     
     function airBoard() {
         document.getElementById("home").style.display = "none";
-        document.body.style.backgroundImage = "url(./Pics/airTemple.JPG)";
+        document.body.style.backgroundImage = "url(./Pics/airTemple.jpg)";
         document.getElementById("board").style.display = "flex";
         
         characters = shuffle(characters);
@@ -95,7 +95,7 @@
     
     function home() {
         document.getElementById("board").style.display = "none";
-        document.body.style.backgroundImage = "url(./Pics/map.JPG)";
+        document.body.style.backgroundImage = "url(./Pics/map.jpg)";
         document.getElementById("home").style.display = "flex";
         
         var color = document.getElementsByClassName("box");
