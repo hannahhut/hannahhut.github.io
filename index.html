@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Avatar Guess Who</title>
+</head>
+    
+<script>
+    
+    var characters = ["Aang", "Appa", "Azula", "Bumi", "Cabbage Man", "Earth King", "Gran Gran", "Gyatso", "Iroh", "Jet", "June", "Katara", "Kyoshi", "Mai", "Momo", "Ozai", "Roku", "Sokka", "Suki", "Toph", "Ty Lee", "Yue", "Zhao", "Zuko"];
+    
+    function shuffle(c) {
+        var i, a, b;
+        
+        for (i = c.length - 1; i > 0; i--) {
+            a = Math.floor(Math.random() * (i - 1));
+            b = c[i];
+            c[i] = c[a];
+            c[a] = b;
+        }
+        
+        return c;
+    }
+    
+    function setImages() {
+        var i;
+        for (i = 1; i <= 24; i++) {
+            var cNum = i;
+            var cChar = cNum.toString();
+            var cID = "c".concat(cChar);
+            
+            var image = document.getElementById(cID);
+            image.getElementsByTagName("img")[0].src = "Pics/".concat(characters[i - 1].concat(".JPG"));
+            image.getElementsByTagName("h4")[0].innerHTML = characters[i - 1];
+        }   
+        
+        var x = Math.floor(Math.random() * 24);
+        
+        var chosen = document.getElementById("chosen");
+        chosen.getElementsByTagName("img")[0].src = "Pics/".concat(characters[x].concat(".JPG"));
+        chosen.getElementsByTagName("h4")[1].innerHTML = characters[x];
+    }
+    
+    function setColor(hex) {
+        var boxes = document.getElementsByClassName("box");
+        
+        var i;
+        for (i = 0; i < boxes.length; i++) {
+            boxes[i].style.backgroundColor = hex;
+            boxes[i].getElementsByTagName("img")[0].style.outlineColor = hex;
+        }
+    }
+    
+    function waterBoard() {
+        document.getElementById("home").style.display = "none";
+        document.body.style.backgroundImage = "url(Pics/waterTribe.PNG)";
+        document.getElementById("board").style.display = "flex";
+        
+        characters = shuffle(characters);
+        setImages();
+        setColor("#1c406f");
+    }
+    
+    function earthBoard() {
+        document.getElementById("home").style.display = "none";
+        document.body.style.backgroundImage = "url(Pics/earthKingdom.JPG)";
+        document.getElementById("board").style.display = "flex";
+        
+        characters = shuffle(characters);
+        setImages();
+        setColor("#2e3f2f");
+    }
+    
+    function fireBoard() {
+        document.getElementById("home").style.display = "none";
+        document.body.style.backgroundImage = "url(Pics/fireNation.PNG)";
+        document.getElementById("board").style.display = "flex";
+        
+        characters = shuffle(characters);
+        setImages();   
+        setColor("#2b2b2b");
+    }
+    
+    function airBoard() {
+        document.getElementById("home").style.display = "none";
+        document.body.style.backgroundImage = "url(Pics/airTemple.JPG)";
+        document.getElementById("board").style.display = "flex";
+        
+        characters = shuffle(characters);
+        setImages(); 
+        setColor("#7094b7");
+    }
+    
+    function home() {
+        document.getElementById("board").style.display = "none";
+        document.body.style.backgroundImage = "url(Pics/map.JPG)";
+        document.getElementById("home").style.display = "flex";
+        
+        var color = document.getElementsByClassName("box");
+        var i;
+        for (i = 0; i < color.length; i++) {
+            color[i].getElementsByTagName("img")[0].style.filter = "none";
+        }
+    }
+    
+    function gray(id) {
+        var gray = "grayscale(100%)";
+        var not = "grayscale(0%)";
+        var img = document.getElementById(id).getElementsByTagName("img")[0];
+        
+        if (img.style.filter.localeCompare(gray) != 0) {
+            img.style.filter = gray;
+        }
+        else {
+            img.style.filter = not;
+        }
+    }
+    
+</script>
+
+<body>
+    
+    <div id="home">
+        <div class="nations">
+            <button id="waterB" class="nation" onclick="waterBoard();"></button>
+            <button id="earthB" class="nation" onclick="earthBoard();"></button>
+        </div>
+        
+        <div id="title">
+            <h1>Welcome to Guess Who - ATLA</h1>
+            <h2>Select a Nation to Begin</h2>
+        </div>
+        
+        <div class="nations">
+            <button id="fireB" class="nation" onclick="fireBoard();"></button>
+            <button id="airB" class="nation" onclick="airBoard();"></button>
+        </div>
+    </div>
+    
+    <div id="board">
+        <div id="chosen" class="box">
+            <h4>Your Character</h4>
+            <img>
+            <h4></h4>
+            <button id="menu" onclick="home();">Main Menu</button>
+        </div>
+    
+        <div id="grid">
+            <div id="c1" class="box" onclick="gray('c1');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c2" class="box" onclick="gray('c2');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c3" class="box" onclick="gray('c3');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c4" class="box" onclick="gray('c4');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c5" class="box" onclick="gray('c5');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c6" class="box" onclick="gray('c6');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c7" class="box" onclick="gray('c7');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c8" class="box" onclick="gray('c8');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c9" class="box" onclick="gray('c9');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c10" class="box" onclick="gray('c10');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c11" class="box" onclick="gray('c11');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c12" class="box" onclick="gray('c12');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c13" class="box" onclick="gray('c13');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c14" class="box" onclick="gray('c14');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c15" class="box" onclick="gray('c15');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c16" class="box" onclick="gray('c16');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c17" class="box" onclick="gray('c17');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c18" class="box" onclick="gray('c18');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c19" class="box" onclick="gray('c19');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c20" class="box" onclick="gray('c20');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c21" class="box" onclick="gray('c21');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c22" class="box" onclick="gray('c22');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c23" class="box" onclick="gray('c23');">
+                <img>
+                <h4></h4>
+            </div>
+            <div id="c24" class="box" onclick="gray('c24');">
+                <img>
+                <h4></h4>
+            </div>
+        </div>
+    </div>
+    
+</body>
